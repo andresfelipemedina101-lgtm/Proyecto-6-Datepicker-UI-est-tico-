@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Datepicker UI</title>
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+
+    /* Contenedor principal: posición relativa para el calendario absoluto */
+    .datepicker {
+      position: relative;
+      width: 260px;
+    }
+
+    /* Fila del input y botón */
+    .input-row {
+      display: flex;
+      border: 1px solid #333;
+      background: white;
+    }
+
+    .input-row input {
+      flex: 1;
+      border: none;
+      padding: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .input-row button {
+      background: white;
+      border: none;
+      border-left: 1px solid #333;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Calendario posicionado absolutamente debajo del input */
+    .calendar {
+      position: absolute;
+      top: 100%; /* justo debajo del input-row */
+      left: 0;
+      width: 100%;
+      background: white;
+      border: 1px solid #333;
+      border-top: none;
+      margin-top: 2px;
+    }
+
+    /* Cabecera del calendario: flechas y mes */
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      border-bottom: 1px solid #333;
+      font-weight: bold;
+    }
+
+    .calendar-header button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Fila de días de la semana */
+    .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      padding: 4px 0;
+      border-bottom: 1px solid #333;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* Cuadrícula de días */
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .days div {
+      padding: 6px 0;
+    }
+
+    /* Celdas vacías iniciales (para que el 1 caiga en jueves) */
+    .empty {
+      visibility: hidden;
+    }
+
+    /* Opcional: resaltar el día 1 como en la imagen (no es necesario) */
+    .days div:not(.empty):hover {
+      background: #ddd;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="datepicker">
+    <!-- Input y botón -->
+    <div class="input-row">
+      <input type="text" placeholder="dd / mm / yyyy" readonly>
+      <button type="button">📅</button>
+    </div>
+
+    <!-- Calendario -->
+    <div class="calendar">
+      <!-- Cabecera con flechas y mes -->
+      <div class="calendar-header">
+        <button type="button">◀</button>
+        <span>December 2022</span>
+        <button type="button">▶</button>
+      </div>
+
+      <!-- Días de la semana -->
+      <div class="weekdays">
+        <div>S</div>
+        <div>M</div>
+        <div>T</div>
+        <div>W</div>
+        <div>T</div>
+        <div>F</div>
+        <div>S</div>
+      </div>
+
+      <!-- Números del 1 al 31 con celdas vacías al inicio -->
+      <div class="days">
+        <!-- Diciembre 2022 empieza en jueves: 4 celdas vacías (S, M, T, W) -->
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+
+        <!-- Días del 1 al 31 -->
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+        <div>21</div>
+        <div>22</div>
+        <div>23</div>
+        <div>24</div>
+        <div>25</div>
+        <div>26</div>
+        <div>27</div>
+        <div>28</div>
+        <div>29</div>
+        <div>30</div>
+        <div>31</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
